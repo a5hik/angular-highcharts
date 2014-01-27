@@ -1,4 +1,4 @@
 angular-dynamic-form
 ====================
 
-An 
+An Angular App to build dynamic Forms.
