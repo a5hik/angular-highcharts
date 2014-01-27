@@ -1,6 +1,6 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
+logs/*
+!.gitkeep
+node_modules/
+tmp
+.DS_Store
+.idea
