@@ -1,9 +1,10 @@
-'use strict';
-
 /* Services */
 
+var services = angular.module('services', ['ngResource']);
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
+services.factory('Reports', ['$resource',
+    function($resource){
+        return $resource('assets/reports/:reportId.json', {}, {
+            query: {method:'GET', params:{reportId:'reports'}, isArray:true}
+        });
+    }]);

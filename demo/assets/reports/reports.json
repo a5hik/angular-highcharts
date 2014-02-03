@@ -1,0 +1,32 @@
+[
+    {
+        "order": 0,
+        "id": "agile-burn-down",
+        "name": "Agile Burn Down Chart",
+        "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Team Forge Agile reports"
+    },
+    {
+        "order": 1,
+        "id": "agile-burn-up",
+        "name": "Agile Burn Up Chart",
+        "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Team Forge Agile reports"
+    },
+    {
+        "order": 2,
+        "id": "release-burn-down",
+        "name": "Release Burn Down Chart\u2122",
+        "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Team Forge Agile reports"
+    },
+    {
+        "order": 3,
+        "id": "sprint-burn-down",
+        "name": "Sprint Burn Down Chart",
+        "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Team Forge Agile reports"
+    },
+    {
+        "order": 4,
+        "id": "resource-util",
+        "name": "Resource Util Report\u2122",
+        "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Team Forge Agile reports"
+    }
+]
