@@ -1,12 +1,13 @@
 
 // Declare app level module which depends on filters, and services
-angular.module('ngDynaForm', [
+angular.module('dyna-form-ng', [
     'ui.router',
     'controllers',
-    'services'
+    'services',
+    'ng-highcharts'
     ]);
 
-angular.module('ngDynaForm').config(function($stateProvider, $urlRouterProvider) {
+angular.module('dyna-form-ng').config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
           url: '/home',

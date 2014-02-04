@@ -1,4 +1,5 @@
 
+
 /* Controllers */
 
 angular.module('controllers', [])
@@ -23,23 +24,14 @@ angular.module('controllers', [])
                 }
             });
         };
-  }])
+    }])
 
     .controller('ReportsDetailCtrl', ['$scope', '$stateParams', 'Reports', function($scope, $stateParams, Reports) {
 
-        $scope.reportsList = Reports.query();
-        $scope.report = function() {
-            _($scope.reportsList).each(function(item) {
-                if(item.id == $stateParams.report) {
-                    $scope.report = item;
-                }
-            });
-        };
+        $scope.report = Reports.get({reportId: $stateParams.report}, function(reportData) {
+            $scope.chartConfig = reportData.chartConfig;
+        });
 
-       // $scope.report = Reports.get({reportId: $stateParams.report}, function(report) {
-
-        //});reportsList
-
-   }]);
+    }]);
 
 

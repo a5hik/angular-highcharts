@@ -1,0 +1,63 @@
+{
+    "chartConfig": {
+        "options": {
+            "chart": {
+                "type": "column"
+            }
+        },
+        "colors": ["#00cddc", "#eeeeee"],
+        "credits": {
+            "enabled": false
+        },
+        "title": {
+            "text": "Agile Burn Down by Sprint"
+        },
+        "subtitle": {
+            "text": "Testing Report for POC"
+        },
+        "xAxis": {
+            "plotBands": [{
+                "color": "#eeeeee",
+                "from": -0.4,
+                "to": 0.4,
+                "zIndex": 3
+            },{
+                "color": "#eeeeee",
+                "from": 0.6,
+                "to": 1.4,
+                "zIndex": 3
+            }],
+            "title": {
+                "text": "Sprint -- Average Velocity: 3 Points/sprint"
+            },
+            "categories": [ "Sprint1", "Sprint2", "Sprint3", "Sprint4" ]
+        },
+        "yAxis": {
+            "min": 0,
+            "title": {
+                "text": "Effort units: Points"
+            }
+        },
+        "plotOptions": {
+            "series": {
+                "dataLabels": {
+                    "enabled": true,
+                    "rotation": -90
+                }
+            }
+        },
+        "series": [{
+            "name": "Sprint",
+            "data": [
+                { "y": 160, "name": "5/1/13"  },
+                { "y": 120, "name": "5/16/13" },
+                { "y": 100, "name": "5/31/13" },
+                { "y": 80, "name": "7/1/13"  }
+
+            ]
+        }, {
+            "name": "Backlog w/ un estimated items",
+            "type": "area"
+        }]
+    }
+}

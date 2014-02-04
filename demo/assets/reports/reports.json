@@ -2,31 +2,37 @@
     {
         "order": 0,
         "id": "agile-burn-down",
-        "name": "Agile Burn Down Chart",
+        "name": "Agile Report - Burn Down Chart",
         "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Team Forge Agile reports"
     },
     {
         "order": 1,
         "id": "agile-burn-up",
-        "name": "Agile Burn Up Chart",
+        "name": "Agile Report - Release Burn Up Chart",
         "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Team Forge Agile reports"
     },
     {
         "order": 2,
-        "id": "release-burn-down",
-        "name": "Release Burn Down Chart\u2122",
+        "id": "artifacts-distribution",
+        "name": "Artifacts Distribution Chart(Single Tracker)",
         "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Team Forge Agile reports"
     },
     {
         "order": 3,
-        "id": "sprint-burn-down",
-        "name": "Sprint Burn Down Chart",
+        "id": "artifacts-distribution-multiple",
+        "name": "Artifacts Distribution Chart(Multiple Trackers)",
         "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Team Forge Agile reports"
     },
     {
         "order": 4,
-        "id": "resource-util",
-        "name": "Resource Util Report\u2122",
+        "id": "artifact-open-close",
+        "name": "Artifact Open close Chart(Multiple Trackers)",
+        "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Team Forge Agile reports"
+    },
+    {
+        "order": 5,
+        "id": "average-aging",
+        "name": "Average Age Report",
         "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Team Forge Agile reports"
     }
 ]

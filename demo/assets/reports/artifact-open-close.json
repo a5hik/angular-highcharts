@@ -1,0 +1,48 @@
+{
+    "title": {
+        "text": "Agile Burn Down Chart"
+    },
+    "subtitle": {
+        "text": "Testing Report for POC"
+    },
+    "xAxis": {
+        "labels": {}
+    },
+    "tooltip": {},
+    "plotOptions": {
+        "bar": {
+            "marker": {
+                "enabled": false,
+                "symbol": "circle",
+                "radius": 2,
+                "states": {
+                    "hover": {
+                        "enabled": true
+                    }
+                }
+            }
+        }
+    },
+    "series": [
+        {
+            "name": "Defects",
+            "data": [
+                400,
+                194,
+                301,
+                130,
+                300
+            ]
+        },
+        {
+            "name": "CRIs",
+            "data": [
+                123,
+                325,
+                120,
+                300,
+                300
+            ]
+        }
+    ]
+}
