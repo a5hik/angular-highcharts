@@ -1,9 +1,0 @@
-<div>
-    <label>{{field.label}}</label>
-    <div>
-        <input ng-disabled="disabled" type="email" placeholder="{{field.placeholder}}" ng-model="localModel" name="fieldName"  ng-required="field.required" />
-        <p class="text-error" ng-show="fieldForm.fieldName.$error.required && fieldForm.email.$dirty">This field is required</p>
-        <p class="text-error" ng-show="fieldForm.fieldName.$error.email">This is not a valid email.</p>
-        <p class="text-error" ng-show="fieldForm.fieldName.$error.maxlength">Please enter no more than 254 characters.</p>
-    </div>
-</div>

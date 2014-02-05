@@ -1,7 +1,0 @@
-<div>
-    <label>{{field.label}}</label>
-    <div>
-        <textarea ng-disabled="disabled" placeholder="{{field.placeholder}}" ui-tinymce="tinymceOptions" tinymce-options="field.tinymceOptions" ng-model="localModel" ng-bind="field.validation" name="fieldName" ng-required="field.required"></textarea>
-        <p class="text-error" ng-show="fieldForm.fieldName.$error.required && fieldForm.fieldName.$dirty">This field is required</span>
-    </div>
-</div>
