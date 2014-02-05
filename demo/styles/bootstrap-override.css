@@ -1,0 +1,14 @@
+/* app css stylesheet */
+
+.list-group {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.container {
+    padding-bottom: 20px;
+}
+
+.form-horizontal {
+    padding-top: 20px;
+}

@@ -28,9 +28,8 @@ angular.module('controllers', [])
     }])
 
     .controller('ReportsConfigCtrl', ['$scope', '$stateParams', 'Reports', function($scope, $stateParams, Reports) {
-        console.log($scope.chartConfig);
+
         $scope.report = Reports.get({reportId: $stateParams.report}, function(reportData) {
-            console.log($scope.chartConfig);
             $scope.chartConfig = reportData.chartConfig;
             $scope.formConfig = reportData.formConfig;
         });
