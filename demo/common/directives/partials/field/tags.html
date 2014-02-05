@@ -1,0 +1,12 @@
+﻿<div>
+    <label>{{field.label}}</label>
+    <p ng-show="field.description" ng-bind-html-unsafe="field.description"></p>
+    <div id="custom-autocomplete">
+        <tags-selection tags="localModel" tags-type="field.tagsType" save="updateTagsModel()" tags-theme="{{field.cssStyle}}"></tags-selection>
+
+
+        <p class="text-error" ng-show="fieldForm.fieldName.$error.required && fieldForm.fieldName.$dirty">This field is required</p>
+        <p class="text-error" ng-show="fieldForm.fieldName.$error.minlength">Please enter at least {{field.minLength}} characters</p>
+        <p class="text-error" ng-show="fieldForm.fieldName.$error.maxlength">Please max {{field.maxLength}} characters</p>
+    </div>
+</div>

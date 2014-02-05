@@ -1,0 +1,13 @@
+<div>
+    <label>{{field.label}}</label>
+    <div>
+        <div ng-repeat="option in field.options">
+            <label>
+                <input type="radio" ng-model="$parent.localModel" value="{{option}}" name="fieldName"  ng-required="field.required" />
+                {{option}}
+            </label>
+           
+        </div>
+        <p class="text-error" ng-show="fieldForm.fieldName.$error.required && fieldForm.fieldName.$dirty">This field is required</p>
+    </div>
+</div>
