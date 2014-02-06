@@ -5,10 +5,11 @@
     margin-bottom: 20px;
 }
 
-.container {
-    padding-bottom: 20px;
+.form-group > label {
+    font-weight: normal;
 }
 
-.form-horizontal {
-    padding-top: 20px;
+.table-bordered {
+    padding: 10px;
+    margin-bottom: 10px;
 }
