@@ -1,4 +1,7 @@
 {
+    "formConfig":{
+
+    },
     "chartConfig": {
         "options": {
             "chart": {
@@ -67,7 +70,13 @@
             ]
         }, {
             "name": "Backlog w/ un estimated items",
-            "type": "area"
+            "data": [
+                { "y": 100, "name": "6/1/13"  },
+                { "y": 120, "name": "7/16/13" },
+                { "y": 140, "name": "7/31/13" },
+                { "y": 80, "name": "8/1/13"  }
+
+            ]
         }]
     }
 }

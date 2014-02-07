@@ -1,0 +1,12 @@
+<label class="col-sm-3 control-label">{{field.label}}</label>
+<div class="col-sm-8">
+    <select ng-disabled="disabled" ng-model="localModel" name="fieldName" ng-options="{{field.ngOptions}}"
+            ng-required="field.required" class="form-control input-sm">
+    </select>
+
+    <p class="text-error" ng-show="fieldForm.fieldName.$error.required && fieldForm.fieldName.$dirty">This field is
+        required</p>
+</div>
+
+
+

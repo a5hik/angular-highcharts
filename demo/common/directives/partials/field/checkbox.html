@@ -1,6 +1,11 @@
-<div class="field-editor" ng-show="isvisible">
-    <label>
-        {{field.label}}
-    </label>
-    <input ng-model="localModel" type="checkbox"/>
+<label class="col-sm-3 control-label">{{field.label}}</label>
+<div col-sm-8>
+    <div ng-repeat="option in field.options">
+        <label class="checkbox-inline">
+            <input type="checkbox" ng-model="$parent.localModel" value="{{option}}" name="fieldName" ng-required="field.required"/>
+            {{option}}
+        </label>
+
+    </div>
+    <p class="text-error" ng-show="fieldForm.fieldName.$error.required && fieldForm.fieldName.$dirty">This field is required</p>
 </div>

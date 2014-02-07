@@ -98,6 +98,14 @@ angular.module('ng-highcharts',[])
                     initChart();
                 }, true);
 
+                scope.$watch('config.credits.enabled', function (enabled) {
+                    if (enabled) {
+                        chart.credits.show();
+                    } else if (chart.credits) {
+                        chart.credits.hide();
+                    }
+                });
+
                 scope.$on('$destroy', function() {
                     if (chart) chart.destroy();
                     element.remove();

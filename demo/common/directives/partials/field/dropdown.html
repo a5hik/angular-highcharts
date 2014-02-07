@@ -1,8 +1,0 @@
-<div>
-    <label>{{field.label}}</label>
-    <div>
-        <select ng-disabled="disabled" ng-model="localModel" name="fieldName" ng-options="{{field.ngOptions}}" ng-required="field.required">
-        </select>
-        <p class="text-error" ng-show="fieldForm.fieldName.$error.required && fieldForm.fieldName.$dirty">This field is required</p>
-    </div>
-</div>

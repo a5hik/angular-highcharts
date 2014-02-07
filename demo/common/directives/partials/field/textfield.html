@@ -1,10 +1,21 @@
-<div>
-    <label>{{field.label}}</label>
-    <div  id="{{field.name}}"> 
-        <input class="{{field.cssStyle}}" ng-disabled="disabled" type="text" placeholder="{{field.placeholder}}" ng-model="localModel" name="fieldName" ng-required="field.required" ng-minlength="{{field.minLength}}" ng-maxlength="{{field.maxLength}}" ng-pattern="field.pattern" />   
-        <p class="text-error" ng-show="fieldForm.fieldName.$error.required && fieldForm.fieldName.$dirty">This field is required</p>
-        <p class="text-error" ng-show="fieldForm.fieldName.$error.minlength">Please enter at least {{field.minLength}} characters</p>
-        <p class="text-error" ng-show="fieldForm.fieldName.$error.maxlength">Please enter no more than {{field.maxLength}} characters</p>
-        <p class="text-error" ng-show="fieldForm.fieldName.$error.pattern">{{field.patternMsg}}</p>
-    </div>
+<label class="col-sm-3 control-label">{{field.label}}</label>
+<div class="col-sm-8" id="{{field.name}}">
+    <input class="form-control input-sm" ng-disabled="disabled" type="text" placeholder="{{field.placeholder}}"
+           ng-model="localModel" name="fieldName" ng-required="field.required" ng-minlength="{{field.minLength}}"
+           ng-maxlength="{{field.maxLength}}" ng-pattern="field.pattern"/>
+
+    <p class="text-error" ng-show="fieldForm.fieldName.$error.required && fieldForm.fieldName.$dirty">This field is
+        required</p>
+
+    <p class="text-error" ng-show="fieldForm.fieldName.$error.minlength">Please enter at least {{field.minLength}}
+        characters</p>
+
+    <p class="text-error" ng-show="fieldForm.fieldName.$error.maxlength">Please enter no more than {{field.maxLength}}
+        characters</p>
+
+    <p class="text-error" ng-show="fieldForm.fieldName.$error.pattern">{{field.patternMsg}}</p>
 </div>
+
+
+
+

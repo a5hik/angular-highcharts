@@ -1,9 +1,16 @@
-<div class="field-editor">
-    <label>{{field.label}}</label>
-    <div>
-        <textarea rows="{{field.rows}}" class="{{field.cssStyle}}" ng-disabled="disabled" type="text" placeholder="{{field.placeholder}}" ng-model="localModel" name="fieldName" ng-minlength="field.minLength" ng-maxlength="field.maxLength" ng-required="field.required"></textarea>
-        <p class="text-error" ng-show="fieldForm.fieldName.$error.required && fieldForm.fieldName.$dirty">This field is required</p>
-        <p class="text-error" ng-show="fieldForm.fieldName.$error.minlength">Please enter at least {{field.minLength}} characters</p>
-        <p class="text-error" ng-show="fieldForm.fieldName.$error.maxlength">Please enter no more than {{field.maxLength}} characters</p>
-    </div>
+<label class="col-sm-3 control-label">{{field.label}}</label>
+<div class="col-sm-8">
+    <textarea rows="{{field.rows}}" class="form-control" ng-disabled="disabled" type="text" placeholder="{{field.placeholder}}"
+           ng-model="localModel" name="fieldName" ng-required="field.required" ng-minlength="{{field.minLength}}"
+           ng-maxlength="{{field.maxLength}}"></textarea>
+
+    <p class="text-error" ng-show="fieldForm.fieldName.$error.required && fieldForm.fieldName.$dirty">This field is
+        required</p>
+
+    <p class="text-error" ng-show="fieldForm.fieldName.$error.minlength">Please enter at least {{field.minLength}}
+        characters</p>
+
+    <p class="text-error" ng-show="fieldForm.fieldName.$error.maxlength">Please enter no more than {{field.maxLength}}
+        characters</p>
+
 </div>
