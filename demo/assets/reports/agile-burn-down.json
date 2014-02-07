@@ -1,6 +1,24 @@
 {
     "formConfig":{
-
+        "fields": [
+            {
+                "label": "Title",
+                "name": "title",
+                "type": "text",
+                "model": "chartConfig.title.text",
+                "required": true,
+                "minLength": 2,
+                "maxLength": 20
+            },
+            {
+                "label": "Subtitle",
+                "name": "sub-title",
+                "type": "text",
+                "model": "chartConfig.subtitle.text",
+                "required": true,
+                "minLength": 2,
+                "maxLength": 20
+            }]
     },
     "chartConfig": {
         "options": {

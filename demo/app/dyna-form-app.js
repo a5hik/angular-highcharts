@@ -4,6 +4,7 @@ angular.module('dyna-form-ng', [
     'ui.router',
     'controllers',
     'services',
+    'form-renderer',
     'ng-highcharts'
     ]);
 
