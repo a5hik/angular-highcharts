@@ -1,7 +1,10 @@
-<label class="col-sm-3 control-label">{{field.label}}</label>
+<div class="form-group">
+    <label class="col-sm-3 control-label">{{field.label}}</label>
 
-<div class="col-sm-8">
-    <select multiple name="fieldName" class="form-control" ng-options="{{field.ngOptions}}" ng-required="field.required">
-    </select>
+    <div class="col-sm-8">
+        <select multiple name="fieldName" class="form-control" ng-options="{{field.ngOptions}}"
+                ng-required="field.required">
+        </select>
 
+    </div>
 </div>

@@ -1,24 +1,55 @@
 {
-    "formConfig":{
+    "formConfig": {
         "fields": [
             {
                 "label": "Title",
                 "name": "title",
                 "type": "text",
-                "model": "chartConfig.title.text",
-                "required": true,
-                "minLength": 2,
-                "maxLength": 20
+                "model": "chartConfig.title.text"
             },
             {
                 "label": "Subtitle",
                 "name": "sub-title",
                 "type": "text",
-                "model": "chartConfig.subtitle.text",
-                "required": true,
-                "minLength": 2,
-                "maxLength": 20
-            }]
+                "model": "chartConfig.subtitle.text"
+            },
+            {
+                "label": "Display Type",
+                "name": "display-type",
+                "type": "select",
+                "model": "chartConfig.options.chart.type",
+                "options": [
+                    {
+                        "id": "line",
+                        "title": "Line"
+                    },
+                    {
+                        "id": "spline",
+                        "title": "Smooth line"
+                    },
+                    {
+                        "id": "area",
+                        "title": "Area"
+                    },
+                    {
+                        "id": "column",
+                        "title": "Column"
+                    },
+                    {
+                        "id": "bar",
+                        "title": "Bar"
+                    },
+                    {
+                        "id": "pie",
+                        "title": "Pie"
+                    },
+                    {
+                        "id": "scatter",
+                        "title": "Scatter"
+                    }
+                ]
+            }
+        ]
     },
     "chartConfig": {
         "options": {
@@ -37,27 +68,54 @@
             "text": "Testing Report for POC"
         },
         "chartTypes": [
-            {"id": "line", "title": "Line"},
-            {"id": "spline", "title": "Smooth line"},
-            {"id": "area", "title": "Area"},
-            {"id": "areaspline", "title": "Smooth area"},
-            {"id": "column", "title": "Column"},
-            {"id": "bar", "title": "Bar"},
-            {"id": "pie", "title": "Pie"},
-            {"id": "scatter", "title": "Scatter"}
-            ],
+            {
+                "id": "line",
+                "title": "Line"
+            },
+            {
+                "id": "spline",
+                "title": "Smooth line"
+            },
+            {
+                "id": "area",
+                "title": "Area"
+            },
+            {
+                "id": "areaspline",
+                "title": "Smooth area"
+            },
+            {
+                "id": "column",
+                "title": "Column"
+            },
+            {
+                "id": "bar",
+                "title": "Bar"
+            },
+            {
+                "id": "pie",
+                "title": "Pie"
+            },
+            {
+                "id": "scatter",
+                "title": "Scatter"
+            }
+        ],
         "xAxis": {
-            "plotBands": [{
-                "color": "#eeeeee",
-                "from": -0.4,
-                "to": 0.4,
-                "zIndex": 3
-            },{
-                "color": "#eeeeee",
-                "from": 0.6,
-                "to": 1.4,
-                "zIndex": 3
-            }],
+            "plotBands": [
+                {
+                    "color": "#eeeeee",
+                    "from": -0.4,
+                    "to": 0.4,
+                    "zIndex": 3
+                },
+                {
+                    "color": "#eeeeee",
+                    "from": 0.6,
+                    "to": 1.4,
+                    "zIndex": 3
+                }
+            ],
             "title": {
                 "text": "Sprint -- Average Velocity: 3 Points/sprint"
             },
@@ -77,24 +135,51 @@
                 }
             }
         },
-        "series": [{
-            "name": "Sprint",
-            "data": [
-                { "y": 160, "name": "5/1/13"  },
-                { "y": 120, "name": "5/16/13" },
-                { "y": 100, "name": "5/31/13" },
-                { "y": 80, "name": "7/1/13"  }
+        "series": [
+            {
+                "name": "Sprint",
+                "data": [
+                    {
+                        "y": 160,
+                        "name": "5/1/13"
+                    },
+                    {
+                        "y": 120,
+                        "name": "5/16/13"
+                    },
+                    {
+                        "y": 100,
+                        "name": "5/31/13"
+                    },
+                    {
+                        "y": 80,
+                        "name": "7/1/13"
+                    }
 
-            ]
-        }, {
-            "name": "Backlog w/ un estimated items",
-            "data": [
-                { "y": 100, "name": "6/1/13"  },
-                { "y": 120, "name": "7/16/13" },
-                { "y": 140, "name": "7/31/13" },
-                { "y": 80, "name": "8/1/13"  }
+                ]
+            },
+            {
+                "name": "Backlog w/ un estimated items",
+                "data": [
+                    {
+                        "y": 100,
+                        "name": "6/1/13"
+                    },
+                    {
+                        "y": 120,
+                        "name": "7/16/13"
+                    },
+                    {
+                        "y": 140,
+                        "name": "7/31/13"
+                    },
+                    {
+                        "y": 80,
+                        "name": "8/1/13"
+                    }
 
-            ]
-        }]
+                ]
+            }
+        ]
     }
 }

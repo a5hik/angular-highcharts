@@ -3,76 +3,12 @@
         <div class="col-sm-offset-0 col-sm-5">
 
             <form class="form-horizontal" role="form">
-                <header><label>Report Parameters:</label></header>
-                <div class="table-bordered">
-                <!-- Select Multiple -->
-                <div class="form-group">
-                    <label class="col-sm-3 control-label" for="planning-folder">Planning Folder</label>
-
-                    <div class="col-sm-8">
-                        <select multiple id="planning-folder" name="planning-folder" class="form-control">
-                            <option>plan0001</option>
-                            <option>plan0002</option>
-                            <option>plan0003</option>
-                            <option>plan0004</option>
-                            <option>plan0005</option>
-                            <option>plan0006</option>
-                        </select>
-                    </div>
-                </div>
-                <!-- Select Multiple -->
-                <div class="form-group">
-                    <label class="col-sm-3 control-label" for="planning-folder">Select Tracker</label>
-
-                    <div class="col-sm-8">
-                        <select multiple id="tracker" name="tracker" class="form-control">
-                            <option>trac0001</option>
-                            <option>trac0002</option>
-                            <option>trac0003</option>
-                            <option>trac0004</option>
-                            <option>trac0005</option>
-                        </select>
-                    </div>
-                </div>
-                    <!-- Multiple Radios -->
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label" for="radios-0">Burn Down By</label>
-
-                        <div class="col-sm-8">
-                            <label class="radio-inline" for="radios-0">
-                                <input type="radio" name="radios" id="radios-0" value="Release" checked="checked"
-                                       required="required">
-                                Release
-                            </label>
-                            <label class="radio-inline" for="radios-1">
-                                <input type="radio" name="radios" id="radios-1" value="Sprint" required="required">
-                                Sprint
-                            </label>
-                        </div>
-                    </div>
-
-                </div>
                 <header><label>Display Options: </label></header>
-            <div class="table-bordered">
-                <div class="form-group">
-                    <label for="report-title" class="col-sm-3 control-label">Title</label>
-                    <div class="col-sm-8">
-                        <input ng-model="chartConfig.title.text" class="form-control input-sm" id="report-title">
+                <div class="table-bordered">
+                    <div ng-repeat="field in formConfig.fields">
+                        <formulate field="field"></formulate>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="report-sub-title" class="col-sm-3 control-label">Subtitle</label>
-                    <div class="col-sm-8">
-                        <input ng-model="chartConfig.subtitle.text" class="form-control input-sm" id="report-sub-title">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="report-sub-title" class="col-sm-3 control-label">Display Type</label>
-                    <div class="col-sm-8">
-                        <select ng-model="chartConfig.options.chart.type" ng-options="t.id as t.title for t in chartConfig.chartTypes" class="form-control input-sm" id="report-display-type"></select>
-                    </div>
-                </div>
-            </div>
             </form>
         </div>
 
@@ -84,9 +20,9 @@
         <div class="form-group">
             <div class="col-sm-offset-1 col-sm-10 breadcrumb">
                 <p class="text-center">
-                <button type="submit" class="btn btn-default ">Cancel</button>
-                <button type="submit" class="btn btn-default">Save</button>
-                <button type="submit" class="btn btn-default">Save and Finish</button>
+                    <button type="submit" class="btn btn-default ">Cancel</button>
+                    <button type="submit" class="btn btn-default" ng-click="addSeries()">Save</button>
+                    <button type="submit" class="btn btn-default">Save and Finish</button>
                 </p>
             </div>
         </div>

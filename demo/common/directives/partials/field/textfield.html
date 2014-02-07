@@ -1,8 +1,10 @@
-<label class="col-sm-3 control-label">{{field.label}}</label>
-<div class="col-sm-8" id="{{field.name}}">
-    <input class="form-control input-sm" ng-disabled="disabled" type="text" placeholder="{{field.placeholder}}"
-           ng-required="field.required" ng-minlength="{{field.minLength}}"
-           ng-maxlength="{{field.maxLength}}" ng-pattern="field.pattern"/>
+<div class="form-group">
+    <label class="col-sm-3 control-label">{{field.label}}</label>
+
+    <div class="col-sm-8" id="{{field.name}}">
+        <input class="form-control input-sm" ng-disabled="disabled" type="text" placeholder="{{field.placeholder}}"
+               ng-required="field.required" ng-model="myModel"/>
+    </div>
 </div>
 
 

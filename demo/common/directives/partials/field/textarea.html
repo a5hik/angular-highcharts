@@ -1,7 +1,11 @@
-<label class="col-sm-3 control-label">{{field.label}}</label>
-<div class="col-sm-8">
-    <textarea rows="{{field.rows}}" class="form-control" ng-disabled="disabled" type="text" placeholder="{{field.placeholder}}"
-           ng-required="field.required" ng-minlength="{{field.minLength}}"
-           ng-maxlength="{{field.maxLength}}"></textarea>
+<div class="form-group">
+    <label class="col-sm-3 control-label">{{field.label}}</label>
 
+    <div class="col-sm-8">
+        <textarea rows="{{field.rows}}" class="form-control" ng-disabled="disabled" type="text"
+                  placeholder="{{field.placeholder}}"
+                  ng-required="field.required" ng-minlength="{{field.minLength}}"
+                  ng-maxlength="{{field.maxLength}}"></textarea>
+
+    </div>
 </div>
