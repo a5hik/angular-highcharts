@@ -4,8 +4,8 @@
     <div class="col-sm-8">
         <div ng-repeat="option in field.options">
             <label class="radio-inline">
-                <input class="radio-inline" type="radio" id="{{option.id}}" value="{{option.title}}"
-                       ng-checked="{{option.selected}}" ng-required="field.required"/>
+                <input class="radio-inline" type="radio" name="{{option.title}}" value="{{option.id}}"
+                       ng-model="$parent.myModel" ng-required="field.required"/>
                 {{option.title}}
             </label>
         </div>

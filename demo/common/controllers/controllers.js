@@ -29,6 +29,10 @@ angular.module('controllers', [])
 
     .controller('ReportsConfigCtrl', ['$scope', '$stateParams', 'Reports', function($scope, $stateParams, Reports) {
 
+        $scope.print = function() {
+            console.log(JSON.stringify($scope.formConfig));
+        };
+
         $scope.report = Reports.get({reportId: $stateParams.report}, function(reportData) {
             $scope.chartConfig = reportData.chartConfig;
             $scope.formConfig = reportData.formConfig;

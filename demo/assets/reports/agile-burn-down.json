@@ -1,17 +1,17 @@
 {
     "formConfig": {
-        "burn-down-by": "sprint",
+        "burnDownBy": "sprint",
         "fields": {
             "params": [
                 {
                     "label": "Burn Down By",
                     "name": "burn-down-by",
+                    "model": "formConfig.burnDownBy",
                     "type": "radio",
                     "options": [
                         {
                             "id": "release",
-                            "title": "Release",
-                            "selected": true
+                            "title": "Release"
                         },
                         {
                             "id": "sprint",
