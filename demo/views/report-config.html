@@ -11,7 +11,7 @@
                 </div>
                 <header><label>Display Options: </label></header>
                 <div class="table-bordered">
-                    <div ng-repeat="field in formConfig.fields.options">
+                    <div ng-repeat="field in formConfig.fields.display">
                         <formulate field="field"></formulate>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
         <div class="form-group">
             <div class="col-sm-offset-1 col-sm-10 breadcrumb">
                 <p class="text-center">
-                    <button type="submit" class="btn btn-default ">Cancel</button>
+                    <button type="submit" class="btn btn-default">Cancel</button>
                     <button type="submit" class="btn btn-default" ng-click="addSeries()">Save</button>
                     <button type="submit" class="btn btn-default">Save and Finish</button>
                 </p>

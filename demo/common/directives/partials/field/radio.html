@@ -1,11 +1,12 @@
 <div class="form-group">
-    <label class="col-sm-3 control-label">{{field.label}}</label>
+    <label class="col-sm-3 control-label">{{field.label}} : </label>
 
-    <div col-sm-8>
+    <div class="col-sm-8">
         <div ng-repeat="option in field.options">
             <label class="radio-inline">
-                <input type="radio" value="{{option}}" name="fieldName" ng-required="field.required"/>
-                {{option}}
+                <input class="radio-inline" type="radio" id="{{option.id}}" value="{{option.title}}"
+                       ng-checked="{{option.selected}}" ng-required="field.required"/>
+                {{option.title}}
             </label>
         </div>
     </div>

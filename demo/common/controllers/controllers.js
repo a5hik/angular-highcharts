@@ -8,7 +8,7 @@ angular.module('controllers', [])
         $scope.reportsList = Reports.query();
         $scope.orderProp = 'order';
 
-        $scope.selectedItem = function(selectedItem) {
+        $scope.selectItem = function(selectedItem) {
             _($scope.reportsList).each(function(item) {
                 item.selected = false;
                 if(selectedItem === item) {
