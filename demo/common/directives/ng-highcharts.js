@@ -26,6 +26,7 @@ angular.module('ng-highcharts',[])
                 },
                 title: {},
                 subtitle: {},
+                credits: {},
                 series: [],
                 plotOptions: {},
                 navigator: {enabled: false}
@@ -43,6 +44,9 @@ angular.module('ng-highcharts',[])
             }
             if (config.subtitle) {
                 mergedOptions.subtitle = config.subtitle;
+            }
+            if (config.credits) {
+                mergedOptions.credits = config.credits;
             }
             return mergedOptions;
         };

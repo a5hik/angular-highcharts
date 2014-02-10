@@ -9,6 +9,10 @@ angular.module('dyna-form-ng', [
     ]);
 
 angular.module('dyna-form-ng').config(function($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider
+        .when('', '/home');
+
     $stateProvider
 
         .state('home', {

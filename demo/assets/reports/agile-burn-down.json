@@ -1,55 +1,59 @@
 {
     "formConfig": {
-        "fields": [
-            {
-                "label": "Title",
-                "name": "title",
-                "type": "text",
-                "model": "chartConfig.title.text"
-            },
-            {
-                "label": "Subtitle",
-                "name": "sub-title",
-                "type": "text",
-                "model": "chartConfig.subtitle.text"
-            },
-            {
-                "label": "Display Type",
-                "name": "display-type",
-                "type": "select",
-                "model": "chartConfig.options.chart.type",
-                "options": [
-                    {
-                        "id": "line",
-                        "title": "Line"
-                    },
-                    {
-                        "id": "spline",
-                        "title": "Smooth line"
-                    },
-                    {
-                        "id": "area",
-                        "title": "Area"
-                    },
-                    {
-                        "id": "column",
-                        "title": "Column"
-                    },
-                    {
-                        "id": "bar",
-                        "title": "Bar"
-                    },
-                    {
-                        "id": "pie",
-                        "title": "Pie"
-                    },
-                    {
-                        "id": "scatter",
-                        "title": "Scatter"
-                    }
-                ]
-            }
-        ]
+        "fields": {
+            "params": [],
+            "options": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "model": "chartConfig.title.text"
+                },
+                {
+                    "label": "Subtitle",
+                    "name": "sub-title",
+                    "type": "text",
+                    "model": "chartConfig.subtitle.text"
+                },
+                {
+                    "label": "Display Type",
+                    "name": "display-type",
+                    "type": "select",
+                    "model": "chartConfig.options.chart.type",
+                    "options": [
+                        {
+                            "id": "line",
+                            "title": "Line"
+                        },
+                        {
+                            "id": "spline",
+                            "title": "Smooth line"
+                        },
+                        {
+                            "id": "area",
+                            "title": "Area"
+                        },
+                        {
+                            "id": "column",
+                            "title": "Column"
+                        },
+                        {
+                            "id": "bar",
+                            "title": "Bar"
+                        },
+                        {
+                            "id": "pie",
+                            "title": "Pie"
+                        },
+                        {
+                            "id": "scatter",
+                            "title": "Scatter"
+                        }
+                    ]
+                }
+            ]
+        }
+
     },
     "chartConfig": {
         "options": {

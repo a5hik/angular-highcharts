@@ -3,9 +3,15 @@
         <div class="col-sm-offset-0 col-sm-5">
 
             <form class="form-horizontal" role="form">
+                <header><label>Report Parameters: </label></header>
+                <div class="table-bordered">
+                    <div ng-repeat="field in formConfig.fields.params">
+                        <formulate field="field"></formulate>
+                    </div>
+                </div>
                 <header><label>Display Options: </label></header>
                 <div class="table-bordered">
-                    <div ng-repeat="field in formConfig.fields">
+                    <div ng-repeat="field in formConfig.fields.options">
                         <formulate field="field"></formulate>
                     </div>
                 </div>
