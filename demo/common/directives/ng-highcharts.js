@@ -51,13 +51,67 @@ angular.module('ng-highcharts',[])
             return mergedOptions;
         };
 
+        var seriesId = 0;
+        var ensureIds = function (series) {
+            angular.forEach(series, function(s) {
+                if (!angular.isDefined(s.id)) {
+                    s.id = 'series-' + seriesId++;
+                }
+            });
+        };
+
+        var chartOptionsWithoutEasyOptions = function (options) {
+            return angular.extend({}, options, {data: null, visible: null});
+        };
+
+        var prevOptions = {};
+
         var processSeries = function(chart, series) {
+            var ids = [];
             if(series) {
-                //add series
+                ensureIds(series);
+
+                //Find series to add or update
                 angular.forEach(series, function(s) {
-                    chart.addSeries(angular.copy(s), false);
+                    ids.push(s.id);
+                    var chartSeries = chart.get(s.id);
+                    if (chartSeries) {
+                        if (!angular.equals(prevOptions[s.id], chartOptionsWithoutEasyOptions(s))) {
+                            chartSeries.update(angular.copy(s), false);
+                        } else {
+                            if (s.visible !== undefined && chartSeries.visible !== s.visible) {
+                                chartSeries.setVisible(s.visible, false);
+                            }
+                            if (chartSeries.options.data !== s.data) {
+                                chartSeries.setData(angular.copy(s.data), false);
+                            }
+                        }
+                    } else {
+                        chart.addSeries(angular.copy(s), false);
+                    }
+                    prevOptions[s.id] = chartOptionsWithoutEasyOptions(s);
                 });
             }
+
+            //Now remove any missing series
+            for(var i = chart.series.length - 1; i >= 0; i--) {
+                var s = chart.series[i];
+                if (indexOf(ids, s.options.id) < 0) {
+                    s.remove(false);
+                }
+            }
+
+        };
+
+        //IE8 support
+        var indexOf = function(arr, find, i /*opt*/) {
+            if (i===undefined) i= 0;
+            if (i<0) i+= arr.length;
+            if (i<0) i= 0;
+            for (var n= arr.length; i<n; i++)
+                if (i in arr && arr[i]===find)
+                    return i;
+            return -1;
         };
 
         var initialiseChart = function(scope, element, config) {

@@ -13,9 +13,6 @@ angular.module('form-renderer', [])
                 case 'text':
                     templateUrl = 'common/directives/partials/field/textfield.html'
                     break;
-                case 'textarea':
-                    templateUrl = 'common/directives/partials/field/textarea.html';
-                    break;
                 case 'checkbox':
                     templateUrl = 'common/directives/partials/field/checkbox.html';
                     break;
