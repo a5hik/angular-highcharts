@@ -51,7 +51,7 @@ angular.module('form-renderer', [])
                     ];
                     break;
                 case 'tracker':
-                    optionsData = optionsData = [
+                    optionsData = [
                         {"id": "tracker1001", "title": "tracker1001"},
                         {"id": "tracker1002", "title": "tracker1002"},
                         {"id": "tracker1003", "title": "tracker1003"},

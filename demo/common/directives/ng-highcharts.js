@@ -142,6 +142,13 @@ angular.module('ng-highcharts',[])
                 }
                 initChart();
 
+                scope.$watch('config.series', function (newSeries, oldSeries) {
+                    //do nothing when called on registration
+                    if (newSeries === oldSeries) return;
+                    processSeries(chart, newSeries);
+                    chart.redraw();
+                }, true);
+
                 scope.$watch('config.title', function (newTitle) {
                     chart.setTitle(newTitle, true);
                 }, true);
@@ -161,6 +168,14 @@ angular.module('ng-highcharts',[])
                         chart.credits.show();
                     } else if (chart.credits) {
                         chart.credits.hide();
+                    }
+                });
+
+                scope.$watch('config.loading', function (loading) {
+                    if(loading) {
+                        chart.showLoading();
+                    } else {
+                        chart.hideLoading();
                     }
                 });
 

@@ -78,10 +78,6 @@
                             "title": "Bar"
                         },
                         {
-                            "id": "pie",
-                            "title": "Pie"
-                        },
-                        {
                             "id": "scatter",
                             "title": "Scatter"
                         }

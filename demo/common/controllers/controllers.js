@@ -27,10 +27,18 @@ angular.module('controllers', [])
 
     }])
 
-    .controller('ReportsConfigCtrl', ['$scope', '$stateParams', 'Reports', function($scope, $stateParams, Reports) {
+    .controller('ReportsConfigCtrl', ['$scope', '$stateParams', 'Reports', 'ChartService', function($scope, $stateParams, Reports, ChartService) {
 
         $scope.print = function() {
-            console.log(angular.toJson($scope.formConfig, 'pretty'));
+            //console.log(angular.toJson($scope.formConfig, 'pretty'));
+            console.log(angular.toJson($scope.chartConfig, 'pretty'));
+        };
+
+        $scope.generateReport = function() {
+          //Get the form Config params and execute sql to get the result in JSON
+            //and update the chart config series.
+            $scope.chartConfig.series = ChartService.randomSeries();
+
         };
 
         $scope.report = Reports.get({reportId: $stateParams.report}, function(reportData) {
