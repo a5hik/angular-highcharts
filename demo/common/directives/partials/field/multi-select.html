@@ -1,10 +1,14 @@
 <div class="form-group">
-    <label class="col-sm-3 control-label">{{field.label}}</label>
+    <label class="col-sm-3 control-label">{{field.label}} :</label>
 
     <div class="col-sm-8">
-        <select multiple name="fieldName" class="form-control" ng-options="{{field.ngOptions}}"
-                ng-required="field.required">
+        <select ui-select2 multiple ng-model="myModel" data-placeholder="{{field.placeHolder}}">
+            <option ng-repeat="option in field.options" value="{{option.id}}">{{option.title}}</option>
         </select>
-
     </div>
 </div>
+
+
+
+
+

@@ -2,6 +2,7 @@
 // Declare app level module which depends on filters, and services
 angular.module('dyna-form-ng', [
     'ui.router',
+    'ui.select2',
     'controllers',
     'services',
     'form-renderer',

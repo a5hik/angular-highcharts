@@ -1,8 +1,26 @@
 {
     "formConfig": {
         "burnDownBy": "sprint",
+        "planningFolderId": "",
         "fields": {
             "params": [
+                {
+                    "label": "Planning Folder ID",
+                    "name": "planning-folder-id",
+                    "model": "formConfig.planningFolderId",
+                    "placeHolder": "Type to Select a Planning Folder...",
+                    "type": "multi-select",
+                    "options": [
+                        {
+                            "id": "plan0001",
+                            "title": "plan0001"
+                        },
+                        {
+                            "id": "plan0002",
+                            "title": "plan0002"
+                        }
+                    ]
+                },
                 {
                     "label": "Burn Down By",
                     "name": "burn-down-by",
