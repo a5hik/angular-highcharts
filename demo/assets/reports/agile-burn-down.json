@@ -91,9 +91,10 @@
         "options": {
             "chart": {
                 "type": "column"
-            }
+            },
+            "colors": ["#2f7ed8", "#0d233a"]
         },
-        "colors": ["#00cddc", "#eeeeee"],
+
         "credits": {
             "enabled": false
         },
