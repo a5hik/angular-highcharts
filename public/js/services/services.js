@@ -9,6 +9,21 @@ services.factory('Reports', ['$resource',
         });
     }]);
 
+services.factory('ReportService', ['$resource', function($resource) {
+    return $resource('/api/reports/:reportId', {}, {
+        get: {method:'GET', params: {reportId: '@_id'}},
+        update: {method:'PUT', params: {reportId: '@_id'}}
+    });
+}]);
+
+services.factory('ChartService', function () {
+    return {
+        randomSeries: function () {
+            return getRandomSeries();
+        }
+    };
+});
+
 var getRandomDate = function (from, to) {
     if (!from) {
         from = new Date(1900, 0, 1).getTime();
@@ -22,14 +37,6 @@ var getRandomDate = function (from, to) {
     }
     return new Date(from + Math.random() * (to - from)).toDateString();
 };
-
-services.factory('ChartService', function () {
-    return {
-        randomSeries: function () {
-            return getRandomSeries();
-        }
-    };
-});
 
 var getRandomSeries = function () {
     var toDate = new Date(2014, 0, 1);

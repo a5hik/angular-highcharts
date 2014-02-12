@@ -16,9 +16,11 @@ app.configure(function() {
     app.use('/test', express.static(path.join(__dirname, 'test')));
 });
 
-/*app.get('/api/reports', reports.findAll);
+app.get('/api/reports', reports.findAll);
 app.get('/api/reports/:id', reports.findById);
-app.put('/api/reports/:id', reports.update);*/
+app.post('/api/reports', reports.add);
+app.put('/api/reports/:id', reports.update);
+app.delete('/api/reports/:id', reports.remove);
 
 http.createServer(app).listen(app.get('port'), function() {
     console.log("Express server listening on port " + app.get('port'));
