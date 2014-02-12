@@ -14,6 +14,7 @@
       "karma-requirejs": "~0.1.0",
       "karma-coffee-preprocessor": "~0.1.0",
       "karma-phantomjs-launcher": "~0.1.0",
-      "karma-script-launcher": "~0.1.0"
+      "karma-script-launcher": "~0.1.0",
+      "express": "3.2.2"
   }
 }

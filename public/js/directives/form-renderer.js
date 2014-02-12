@@ -11,22 +11,22 @@ angular.module('form-renderer', [])
             var templateUrl = '';
             switch (type) {
                 case 'text':
-                    templateUrl = 'common/directives/partials/field/textfield.html'
+                    templateUrl = 'js/directives/partials/field/textfield.html'
                     break;
                 case 'checkbox':
-                    templateUrl = 'common/directives/partials/field/checkbox.html';
+                    templateUrl = 'js/directives/partials/field/checkbox.html';
                     break;
                 case 'select':
-                    templateUrl = 'common/directives/partials/field/select.html';
+                    templateUrl = 'js/directives/partials/field/select.html';
                     break;
                 case 'multi-select':
-                    templateUrl = 'common/directives/partials/field/multi-select.html';
+                    templateUrl = 'js/directives/partials/field/multi-select.html';
                     break;
                 case 'radio':
-                    templateUrl = 'common/directives/partials/field/radio.html';
+                    templateUrl = 'js/directives/partials/field/radio.html';
                     break;
                 default:
-                    templateUrl = 'common/directives/partials/field/textfield.html';
+                    templateUrl = 'js/directives/partials/field/textfield.html';
                     break;
             }
             return templateUrl;
