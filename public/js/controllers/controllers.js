@@ -16,9 +16,9 @@ angular.module('controllers', [])
         };
     }])
 
-    .controller('ReportsDetailCtrl', ['$scope', '$stateParams', 'Reports', function ($scope, $stateParams, Reports) {
+    .controller('ReportsDetailCtrl', ['$scope', '$stateParams', 'ReportService', function ($scope, $stateParams, ReportService) {
 
-        $scope.report = Reports.get({reportId: $stateParams.report}, function (reportData) {
+        $scope.report = ReportService.get({reportId: $stateParams.report}, function (reportData) {
             $scope.reportId = $stateParams.report;
             $scope.chartConfig = reportData.chartConfig;
         });
@@ -35,14 +35,14 @@ angular.module('controllers', [])
         };
 
         $scope.updateReport = function () {
-            console.log(angular.toJson($scope.chartConfig, 'pretty'));
+            //console.log(angular.toJson($scope.chartConfig, 'pretty'));
             //ReportService.update($scope.chartConfig, function () {
-            ReportService.get({reportId: $stateParams.report}, function (reportData) {
-                console.log(angular.toJson(reportData, 'pretty'));
+            ReportService.update($scope.report, function (reportData) {
+
             });
         };
 
-        $scope.report = Reports.get({reportId: $stateParams.report}, function (reportData) {
+        $scope.report = ReportService.get({reportId: $stateParams.report}, function (reportData) {
             $scope.chartConfig = reportData.chartConfig;
             $scope.formConfig = reportData.formConfig;
         });
