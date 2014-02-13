@@ -1,5 +1,6 @@
 <div class="container-fluid">
     <div class="row-fluid">
+        <span class="label label-success" ng-show="submissionSuccess">Report data saved successfully...!!!</span>
         <div class="col-sm-offset-0 col-sm-5">
 
             <form class="form-horizontal" role="form">
@@ -32,9 +33,9 @@
         <div class="form-group">
             <div class="col-sm-offset-1 col-sm-10 modal-footer table-responsive">
                 <p class="text-center">
-                    <button type="submit" class="btn btn-default">Cancel</button>
-                    <button type="submit" class="btn btn-default" ng-click="updateReport()">Save</button>
-                    <button type="submit" class="btn btn-default">Save and Finish</button>
+                    <button type="submit" class="btn btn-default" ng-click="go('/list')">Cancel</button>
+                    <button type="submit" class="btn btn-default" ng-click="saveReport()">Save</button>
+                    <button type="submit" class="btn btn-default" ng-click="saveFinishReport()">Save and Finish</button>
                 </p>
             </div>
         </div>

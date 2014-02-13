@@ -25,28 +25,38 @@ angular.module('controllers', [])
 
     }])
 
-    .controller('ReportsConfigCtrl', ['$scope', '$stateParams', 'Reports', 'ChartService', 'ReportService', function ($scope, $stateParams, Reports, ChartService, ReportService) {
+    .controller('ReportsConfigCtrl', ['$scope', '$stateParams', '$location', 'Reports', 'ChartService', 'ReportService',
+        function ($scope, $stateParams, $location, Reports, ChartService, ReportService) {
 
-        $scope.generateReport = function () {
-            //Get the form Config params and execute sql to get the result in JSON
-            //and update the chart config series.
-            $scope.chartConfig.series = ChartService.randomSeries();
+            $scope.generateReport = function () {
+                //Get the form Config params and execute sql to get the result in JSON
+                //and update the chart config series.
+                $scope.chartConfig.series = ChartService.randomSeries();
 
-        };
+            };
 
-        $scope.updateReport = function () {
-            //console.log(angular.toJson($scope.chartConfig, 'pretty'));
-            //ReportService.update($scope.chartConfig, function () {
-            ReportService.update($scope.report, function (reportData) {
+            $scope.saveReport = function () {
+                //console.log(angular.toJson($scope.chartConfig, 'pretty'));
+                //ReportService.update($scope.chartConfig, function () {
+                ReportService.update($scope.report, function (reportData) {
+                    $scope.submissionSuccess = true;
+                });
+            };
 
+            $scope.saveFinishReport = function () {
+                $scope.saveReport();
+                $scope.go('/list/' + $stateParams.report);
+            };
+
+            $scope.report = ReportService.get({reportId: $stateParams.report}, function (reportData) {
+                $scope.chartConfig = reportData.chartConfig;
+                $scope.formConfig = reportData.formConfig;
             });
-        };
 
-        $scope.report = ReportService.get({reportId: $stateParams.report}, function (reportData) {
-            $scope.chartConfig = reportData.chartConfig;
-            $scope.formConfig = reportData.formConfig;
-        });
+            $scope.go = function (path) {
+                $location.path(path);
+            };
 
-    }]);
+        }]);
 
 
