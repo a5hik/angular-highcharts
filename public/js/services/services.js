@@ -1,4 +1,3 @@
-
 var services = angular.module('services', ['ngResource']);
 
 services.factory('Reports', ['$resource',
@@ -8,10 +7,14 @@ services.factory('Reports', ['$resource',
         });
     }]);
 
-services.factory('ReportService', ['$resource', function($resource) {
+services.factory('DataSharingService', function () {
+    return {};
+});
+
+services.factory('ReportService', ['$resource', function ($resource) {
     return $resource('/api/reports/:reportId', {}, {
-        get: {method:'GET', params: {reportId: '@_id'}},
-        update: {method:'PUT', params: {reportId: '@_id'}}
+        get: {method: 'GET', params: {reportId: '@_id'}},
+        update: {method: 'PUT', params: {reportId: '@_id'}}
     });
 }]);
 
