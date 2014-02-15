@@ -1,4 +1,3 @@
-
 // Declare app level module which depends on filters, and services
 angular.module('dyna-form-ng', [
     'ui.router',
@@ -7,9 +6,9 @@ angular.module('dyna-form-ng', [
     'services',
     'form-renderer',
     'ng-highcharts'
-    ]);
+]);
 
-angular.module('dyna-form-ng').config(function($stateProvider, $urlRouterProvider) {
+angular.module('dyna-form-ng').config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider
         .when('', '/home');
@@ -17,8 +16,8 @@ angular.module('dyna-form-ng').config(function($stateProvider, $urlRouterProvide
     $stateProvider
 
         .state('home', {
-          url: '/home',
-          templateUrl: 'views/home.html',
+            url: '/home',
+            templateUrl: 'views/home.html',
             controller: 'ReportsDashboardCtrl'
         })
 
@@ -28,17 +27,23 @@ angular.module('dyna-form-ng').config(function($stateProvider, $urlRouterProvide
             controller: 'ListReportsCtrl'
         })
 
-       .state('list.report', {
-                url: '/:report',
-                templateUrl: 'views/report-detail.html',
-                controller: 'ReportsDetailCtrl'
-       })
+        .state('list.report', {
+            url: '/:report',
+            templateUrl: 'views/report-detail.html',
+            controller: 'ReportsDetailCtrl'
+        })
 
-       .state('report', {
-                url: '/:report/config',
-                templateUrl: 'views/report-config.html',
-                controller: 'ReportsConfigCtrl'
-       })
-   });
+        .state('list.config', {
+            url: '/:report/config',
+            templateUrl: 'views/manage-report.html',
+            controller: 'ReportsManageCtrl'
+        })
+
+        .state('report', {
+            url: '/:report/config',
+            templateUrl: 'views/report-config.html',
+            controller: 'ReportsConfigCtrl'
+        })
+});
 
 

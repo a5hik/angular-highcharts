@@ -4,10 +4,10 @@ angular.module('controllers', [])
         $scope.orderProp = 'order';
         $scope.reportsList = Reports.query(function (data) {
             if (DataSharingService.selectedReport) {
-                $location.path('/list/' + DataSharingService.selectedReport);
+                $location.path('/list/' + DataSharingService.selectedReport +'/config');
                 $scope.selectedItem = DataSharingService.selectedReport;
             } else {
-                $location.path('/list/' + _.first(data).id);
+                $location.path('/list/' + _.first(data).id + '/config');
                 $scope.selectedItem = _.first(data).id;
             }
         });
@@ -30,6 +30,18 @@ angular.module('controllers', [])
           function ($scope, $location, $state, $stateParams, Reports, ReportService, DataSharingService) {
               $scope.reports = ReportService.reportsList.get();
     }])
+
+    .controller('ReportsManageCtrl', ['$scope', '$location', '$state', '$stateParams', 'Reports', 'ReportService', 'DataSharingService',
+        function ($scope, $location, $state, $stateParams, Reports, ReportService, DataSharingService) {
+
+            $scope.report = ReportService.reports.get({reportId: $stateParams.report}, function (reportData) {
+                $scope.chartConfig = reportData.chartConfig;
+                $scope.formConfig = reportData.formConfig;
+            });
+
+            $scope.reports = ReportService.reportsList.get();
+        }])
+
 
     .controller('ReportsDetailCtrl', ['$scope', '$stateParams', 'ReportService', 'DataSharingService', function ($scope, $stateParams, ReportService, DataSharingService) {
 
@@ -61,7 +73,7 @@ angular.module('controllers', [])
 
             $scope.saveFinishReport = function () {
                 $scope.saveReport();
-                $scope.go('/list/' + $stateParams.report);
+                $scope.go('/list/' + $stateParams.report+ '/config');
             };
 
             $scope.report = ReportService.reports.get({reportId: $stateParams.report}, function (reportData) {

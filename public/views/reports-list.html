@@ -3,7 +3,7 @@
         <a class="list-group-item"
            ng-repeat="report in reportsList | orderBy: orderProp"
            ng-class="{active: selectedItem == report.id}"
-           ng-href="#/list/{{report.id}}"
+           ng-href="#/list/{{report.id}}/config"
            ng-click="selectItem(report.id)">{{report.name}}</a>
     </div>
     <div class="col-xs-9" ui-view></div>
