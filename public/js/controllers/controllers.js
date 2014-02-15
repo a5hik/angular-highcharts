@@ -26,9 +26,14 @@ angular.module('controllers', [])
         }
     }])
 
+    .controller('ReportsDashboardCtrl', ['$scope', '$location', '$state', '$stateParams', 'Reports', 'ReportService', 'DataSharingService',
+          function ($scope, $location, $state, $stateParams, Reports, ReportService, DataSharingService) {
+              $scope.reports = ReportService.reportsList.get();
+    }])
+
     .controller('ReportsDetailCtrl', ['$scope', '$stateParams', 'ReportService', 'DataSharingService', function ($scope, $stateParams, ReportService, DataSharingService) {
 
-        $scope.report = ReportService.get({reportId: $stateParams.report}, function (reportData) {
+        $scope.report = ReportService.reports.get({reportId: $stateParams.report}, function (reportData) {
             $scope.reportId = $stateParams.report;
             $scope.chartConfig = reportData.chartConfig;
             DataSharingService.selectedReport = $stateParams.report;
@@ -49,7 +54,7 @@ angular.module('controllers', [])
             };
 
             $scope.saveReport = function () {
-                ReportService.update($scope.report, function (reportData) {
+                ReportService.reports.update($scope.report, function (reportData) {
                     $scope.submissionSuccess = true;
                 });
             };
@@ -59,7 +64,7 @@ angular.module('controllers', [])
                 $scope.go('/list/' + $stateParams.report);
             };
 
-            $scope.report = ReportService.get({reportId: $stateParams.report}, function (reportData) {
+            $scope.report = ReportService.reports.get({reportId: $stateParams.report}, function (reportData) {
                 $scope.chartConfig = reportData.chartConfig;
                 $scope.formConfig = reportData.formConfig;
             });

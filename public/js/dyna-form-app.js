@@ -18,7 +18,8 @@ angular.module('dyna-form-ng').config(function($stateProvider, $urlRouterProvide
 
         .state('home', {
           url: '/home',
-          templateUrl: 'views/home.html'
+          templateUrl: 'views/home.html',
+            controller: 'ReportsDashboardCtrl'
         })
 
         .state('list', {

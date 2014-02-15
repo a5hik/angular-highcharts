@@ -1,7 +1,11 @@
 <div class="container">
-    <h4>Adhoc reporting by building Angular dynamic forms.</h4>
-    <p class="center-block">
-        The Reports input details are configured in JSON static files.
-        the forms are dynamically rendered based on the configuration.
-    </p>
+    <div class="table-responsive">
+        <ul class="list-inline reports thumbnails">
+            <li class="span5" ng-repeat="report in reports">
+                <div class="thumbnail">
+                    <chart config="report.chartConfig"></chart>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>

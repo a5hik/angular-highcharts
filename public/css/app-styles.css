@@ -1,3 +1,16 @@
 .select2-container {
     width: 100%
 }
+
+.thumbnail {
+    float: left;
+    margin: -1em 1em 1.5em 0em;
+    padding-bottom: 1em;
+    width: 100%;
+}
+
+.reports li {
+    clear: both;
+    padding-top: 15px;
+    width: 50%;
+}

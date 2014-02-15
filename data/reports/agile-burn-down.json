@@ -104,6 +104,18 @@
         "subtitle": {
             "text": "Testing Report for POC"
         },
+        "labels": {
+            "items": [
+                {
+                    "html": "Sample Report",
+                    "style": {
+                        "left": "100px",
+                        "top": "-50px",
+                        "fontSize": "20px"
+                    }
+                }
+            ]
+        },
         "chartTypes": [
             {
                 "id": "line",

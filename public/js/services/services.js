@@ -12,10 +12,16 @@ services.factory('DataSharingService', function () {
 });
 
 services.factory('ReportService', ['$resource', function ($resource) {
-    return $resource('/api/reports/:reportId', {}, {
-        get: {method: 'GET', params: {reportId: '@_id'}},
-        update: {method: 'PUT', params: {reportId: '@_id'}}
-    });
+
+    return {
+        reports: $resource('/api/reports/:reportId', {}, {
+            get: {method: 'GET', params: {reportId: '@_id'}},
+            update: {method: 'PUT', params: {reportId: '@_id'}}
+        }),
+        reportsList: $resource('/api/reports', {}, {
+            get: {method: 'GET', params: {}, isArray:true}
+        })
+    };
 }]);
 
 services.factory('ChartService', function () {
