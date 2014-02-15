@@ -1,13 +1,13 @@
 angular.module('controllers', [])
 
-    .controller('ListReportsCtrl', ['$scope', '$location', '$state', '$stateParams', 'Reports', 'DataSharingService', function ($scope, $location, $state, $stateParams, Reports, DataSharingService) {
+    .controller('ListReportsCtrl', ['$scope', '$location', '$state', '$stateParams', 'ReportTemplateService', 'DataSharingService', function ($scope, $location, $state, $stateParams, ReportTemplateService, DataSharingService) {
         $scope.orderProp = 'order';
-        $scope.reportsList = Reports.query(function (data) {
-            if (DataSharingService.selectedReport) {
-                $location.path('/list/' + DataSharingService.selectedReport +'/config');
-                $scope.selectedItem = DataSharingService.selectedReport;
+        $scope.reportsList = ReportTemplateService.query(function (data) {
+            if (DataSharingService.selectedReportType) {
+                $location.path('/list/admin/' + DataSharingService.selectedReportType);
+                $scope.selectedItem = DataSharingService.selectedReportType;
             } else {
-                $location.path('/list/' + _.first(data).id + '/config');
+                $location.path('/list/admin/' + _.first(data).id);
                 $scope.selectedItem = _.first(data).id;
             }
         });
@@ -21,25 +21,26 @@ angular.module('controllers', [])
         };
 
         $scope.reload = function () {
-            DataSharingService.selectedReport = null;
+            DataSharingService.selectedReportType = null;
             $state.transitionTo($state.current, $stateParams, { reload: true, inherit: false, notify: true });
         }
     }])
 
-    .controller('ReportsDashboardCtrl', ['$scope', '$location', '$state', '$stateParams', 'Reports', 'ReportService', 'DataSharingService',
-          function ($scope, $location, $state, $stateParams, Reports, ReportService, DataSharingService) {
-              $scope.reports = ReportService.reportsList.get();
-    }])
-
-    .controller('ReportsManageCtrl', ['$scope', '$location', '$state', '$stateParams', 'Reports', 'ReportService', 'DataSharingService',
-        function ($scope, $location, $state, $stateParams, Reports, ReportService, DataSharingService) {
-
-            $scope.report = ReportService.reports.get({reportId: $stateParams.report}, function (reportData) {
-                $scope.chartConfig = reportData.chartConfig;
-                $scope.formConfig = reportData.formConfig;
-            });
-
+    .controller('ReportsDashboardCtrl', ['$scope', '$location', '$state', '$stateParams', 'ReportTemplateService', 'ReportService', 'DataSharingService',
+        function ($scope, $location, $state, $stateParams, ReportTemplateService, ReportService, DataSharingService) {
             $scope.reports = ReportService.reportsList.get();
+        }])
+
+    .controller('ReportsManageCtrl', ['$scope', '$location', '$state', '$stateParams', 'ReportTemplateService', 'ReportService', 'DataSharingService',
+        function ($scope, $location, $state, $stateParams, ReportTemplateService, ReportService, DataSharingService) {
+            $scope.reportType = $stateParams.reportType;
+            $scope.reports = ReportService.reportsType.get({type: $stateParams.reportType}, function (reportData) {
+            });
+            DataSharingService.selectedReportType = $stateParams.reportType;
+
+            $scope.deleteReport = function(reportId) {
+                ReportService.reports.delete({reportId: reportId});
+            }
         }])
 
 
@@ -53,8 +54,8 @@ angular.module('controllers', [])
 
     }])
 
-    .controller('ReportsConfigCtrl', ['$scope', '$stateParams', '$location', 'ChartService', 'ReportService', 'DataSharingService',
-        function ($scope, $stateParams, $location, ChartService, ReportService, DataSharingService) {
+    .controller('ReportsConfigCtrl', ['$scope', '$stateParams', '$location', 'ChartService', 'ReportService', 'ReportTemplateService', 'DataSharingService',
+        function ($scope, $stateParams, $location, ChartService, ReportService, ReportTemplateService, DataSharingService) {
 
             $scope.generateReport = function () {
                 //Get the form Config params and execute sql to get the result in JSON
@@ -66,19 +67,39 @@ angular.module('controllers', [])
             };
 
             $scope.saveReport = function () {
-                ReportService.reports.update($scope.report, function (reportData) {
-                    $scope.submissionSuccess = true;
-                });
+                //Add
+                if(!$scope.report.type) {
+                    $scope.report.type = $stateParams.report;
+                    ReportService.reportsList.add($scope.report, function (reportData) {
+                        $scope.submissionSuccess = true;
+                    });
+                } else { //update
+                    ReportService.reports.update($scope.report, function (reportData) {
+                        $scope.submissionSuccess = true;
+                    });
+                }
             };
 
             $scope.saveFinishReport = function () {
                 $scope.saveReport();
-                $scope.go('/list/' + $stateParams.report+ '/config');
+                $scope.go('/list/admin/' + DataSharingService.selectedReportType);
             };
 
-            $scope.report = ReportService.reports.get({reportId: $stateParams.report}, function (reportData) {
-                $scope.chartConfig = reportData.chartConfig;
-                $scope.formConfig = reportData.formConfig;
+            $scope.cancel = function() {
+                $scope.go('/list/admin/' + DataSharingService.selectedReportType);
+            };
+
+            $scope.report = ReportTemplateService.get({reportType: $stateParams.report}, function (reportData) {
+                if (reportData) {
+                    $scope.chartConfig = reportData.chartConfig;
+                    $scope.formConfig = reportData.formConfig;
+                } else {
+                    $scope.report = ReportService.reports.get({reportId: $stateParams.report}, function (reportData) {
+                        $scope.chartConfig = reportData.chartConfig;
+                        $scope.formConfig = reportData.formConfig;
+
+                    });
+                }
             });
 
             $scope.go = function (path) {

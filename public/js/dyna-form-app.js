@@ -2,8 +2,10 @@
 angular.module('dyna-form-ng', [
     'ui.router',
     'ui.select2',
+   // 'ui.bootstrap',
     'controllers',
     'services',
+    'directives',
     'form-renderer',
     'ng-highcharts'
 ]);
@@ -34,7 +36,7 @@ angular.module('dyna-form-ng').config(function ($stateProvider, $urlRouterProvid
         })
 
         .state('list.config', {
-            url: '/:report/config',
+            url: '/admin/:reportType',
             templateUrl: 'views/manage-report.html',
             controller: 'ReportsManageCtrl'
         })

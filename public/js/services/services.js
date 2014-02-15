@@ -1,9 +1,9 @@
 var services = angular.module('services', ['ngResource']);
 
-services.factory('Reports', ['$resource',
+services.factory('ReportTemplateService', ['$resource',
     function ($resource) {
-        return $resource('./data/reports/:reportId.json', {}, {
-            query: {method: 'GET', params: {reportId: 'reports'}, isArray: true}
+        return $resource('./data/reports/:reportType.json', {}, {
+            query: {method: 'GET', params: {reportType: 'reports'}, isArray: true}
         });
     }]);
 
@@ -16,10 +16,15 @@ services.factory('ReportService', ['$resource', function ($resource) {
     return {
         reports: $resource('/api/reports/:reportId', {}, {
             get: {method: 'GET', params: {reportId: '@_id'}},
-            update: {method: 'PUT', params: {reportId: '@_id'}}
+            update: {method: 'PUT', params: {reportId: '@_id'}},
+            delete: {method: 'DELETE', params: {reportId: '@_id'}}
         }),
         reportsList: $resource('/api/reports', {}, {
+            add: {method: 'POST'},
             get: {method: 'GET', params: {}, isArray:true}
+        }),
+        reportsType: $resource('/api/reportsList/:type', {}, {
+            get: {method: 'GET', params: {type: '@type'}, isArray:true}
         })
     };
 }]);
