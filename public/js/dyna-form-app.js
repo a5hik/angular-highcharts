@@ -2,7 +2,6 @@
 angular.module('dyna-form-ng', [
     'ui.router',
     'ui.select2',
-   // 'ui.bootstrap',
     'controllers',
     'services',
     'directives',

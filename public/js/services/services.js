@@ -2,8 +2,8 @@ var services = angular.module('services', ['ngResource']);
 
 services.factory('ReportTemplateService', ['$resource',
     function ($resource) {
-        return $resource('./data/reports/:reportType.json', {}, {
-            query: {method: 'GET', params: {reportType: 'reports'}, isArray: true}
+        return $resource('./data/reports/:reportId.json', {}, {
+            query: {method: 'GET', params: {reportId: 'reports'}, isArray: true}
         });
     }]);
 

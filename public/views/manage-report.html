@@ -19,7 +19,7 @@
             <ul class="list-inline pull-right">
             <li><a class="btn-default btn-sm" ng-href="#/{{report._id}}/config">
                 <i class="fa fa-pencil"></i></a></li>
-            <li><a class="btn-default btn-sm" confirm-click="deleteReport(report.id)" confirmation="Are you sure you want to delete {{report.chartConfig.title.text}}">
+            <li><a class="btn-default btn-sm" ng-click="deleteReport(report._id)">
                 <i class="fa fa-trash-o"></i></a></li>
             </ul>
         </td>

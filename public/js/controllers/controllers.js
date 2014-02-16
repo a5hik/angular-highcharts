@@ -39,7 +39,12 @@ angular.module('controllers', [])
             DataSharingService.selectedReportType = $stateParams.reportType;
 
             $scope.deleteReport = function(reportId) {
-                ReportService.reports.delete({reportId: reportId});
+                console.log(reportId);
+                var deleteReport = confirm('Are you absolutely sure you want to delete?');
+                if (deleteReport) {
+                    ReportService.reports.delete({reportId: reportId});
+                    $scope.reports.splice(reportId, 1);
+                }
             }
         }])
 
@@ -60,8 +65,6 @@ angular.module('controllers', [])
             $scope.generateReport = function () {
                 //Get the form Config params and execute sql to get the result in JSON
                 //and update the chart config series.
-                console.log(angular.toJson($scope.chartConfig, 'pretty'));
-                console.log(angular.toJson($scope.formConfig, 'pretty'));
                 $scope.chartConfig.series = ChartService.randomSeries();
 
             };
@@ -89,17 +92,14 @@ angular.module('controllers', [])
                 $scope.go('/list/admin/' + DataSharingService.selectedReportType);
             };
 
-            $scope.report = ReportTemplateService.get({reportType: $stateParams.report}, function (reportData) {
-                if (reportData) {
+            $scope.report = ReportService.reports.get({reportId: $stateParams.report}, function (reportData) {
                     $scope.chartConfig = reportData.chartConfig;
                     $scope.formConfig = reportData.formConfig;
-                } else {
-                    $scope.report = ReportService.reports.get({reportId: $stateParams.report}, function (reportData) {
-                        $scope.chartConfig = reportData.chartConfig;
-                        $scope.formConfig = reportData.formConfig;
-
-                    });
-                }
+            }, function () {
+                $scope.report = ReportTemplateService.get({reportId: $stateParams.report}, function (reportData) {
+                    $scope.chartConfig = reportData.chartConfig;
+                    $scope.formConfig = reportData.formConfig;
+                });
             });
 
             $scope.go = function (path) {
