@@ -18,6 +18,7 @@ app.configure(function() {
 
 app.get('/api/reports', reports.findAll);
 app.get('/api/reportsList/:type', reports.findAllByType);
+app.get('/api/reportsCount/:count', reports.findByCount);
 app.get('/api/reports/:id', reports.findById);
 app.post('/api/reports', reports.add);
 app.put('/api/reports/:id', reports.update);

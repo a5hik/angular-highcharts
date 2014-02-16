@@ -12,9 +12,8 @@ db.open(function (err, db) {
         console.log("Connected to poc database");
         db.collection('reports', {strict: true}, function (err, collection) {
             if (err) {
-                console.log("The reports collection does not exist. Creating it with sample data...");
+                console.log("The reports collection does not exist. ");
             }
-            //populateDB();
         });
     }
 });
@@ -22,6 +21,16 @@ db.open(function (err, db) {
 exports.findAll = function (req, res) {
     db.collection('reports', function (err, collection) {
         collection.find().toArray(function (err, items) {
+            res.send(items);
+        });
+    });
+};
+
+exports.findByCount = function (req, res) {
+    var count = req.params.count;
+    console.log(count);
+    db.collection('reports', function (err, collection) {
+        collection.find().sort({$natural: -1}).limit(4).toArray(function (err, items) {
             res.send(items);
         });
     });
@@ -40,7 +49,7 @@ exports.findById = function (req, res) {
     var id = req.params.id;
     db.collection('reports', function (err, collection) {
         collection.findOne({'_id': new BSON.ObjectID(id)}, function (err, item) {
-            if(err) {
+            if (err) {
                 res.send({'error': 'An error has occurred'});
             } else {
                 res.send(item);
@@ -67,8 +76,6 @@ exports.add = function (req, res) {
 exports.update = function (req, res) {
     var id = req.params.id;
     var report = req.body;
-    console.log('Updating report: ' + id);
-    console.log(JSON.stringify(report));
     delete report._id;
     db.collection('reports', function (err, collection) {
         collection.update({'_id': new BSON.ObjectID(id)}, report, {safe: true}, function (err, result) {

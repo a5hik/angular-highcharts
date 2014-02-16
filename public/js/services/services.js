@@ -25,6 +25,10 @@ services.factory('ReportService', ['$resource', function ($resource) {
         }),
         reportsType: $resource('/api/reportsList/:type', {}, {
             get: {method: 'GET', params: {type: '@type'}, isArray:true}
+        }),
+
+        reportsCount: $resource('/api/reportsCount/:count', {}, {
+            get: {method: 'GET', params: {count: '@count'}, isArray:true}
         })
     };
 }]);
