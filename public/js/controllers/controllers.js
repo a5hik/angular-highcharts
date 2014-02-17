@@ -57,7 +57,6 @@ angular.module('controllers', [])
 
             $scope.reportId = $stateParams.report;
             $scope.chartConfig = reportData.chartConfig;
-            DataSharingService.selectedReport = $stateParams.report;
         });
 
     }])
@@ -68,7 +67,7 @@ angular.module('controllers', [])
             $scope.generateReport = function () {
                 //Get the form Config params and execute sql to get the result in JSON
                 //and update the chart config series.
-                $scope.chartConfig.series = ChartService.randomSeries();
+                $scope.chartConfig.series = ChartService.randomSeries(DataSharingService.selectedReportType);
 
             };
 

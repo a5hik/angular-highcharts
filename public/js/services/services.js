@@ -21,22 +21,22 @@ services.factory('ReportService', ['$resource', function ($resource) {
         }),
         reportsList: $resource('/api/reports', {}, {
             add: {method: 'POST'},
-            get: {method: 'GET', params: {}, isArray:true}
+            get: {method: 'GET', params: {}, isArray: true}
         }),
         reportsType: $resource('/api/reportsList/:type', {}, {
-            get: {method: 'GET', params: {type: '@type'}, isArray:true}
+            get: {method: 'GET', params: {type: '@type'}, isArray: true}
         }),
 
         reportsCount: $resource('/api/reportsCount/:count', {}, {
-            get: {method: 'GET', params: {count: '@count'}, isArray:true}
+            get: {method: 'GET', params: {count: '@count'}, isArray: true}
         })
     };
 }]);
 
 services.factory('ChartService', function () {
     return {
-        randomSeries: function () {
-            return getRandomSeries();
+        randomSeries: function (chartType) {
+            return getRandomSeries(chartType);
         }
     };
 });
@@ -55,63 +55,152 @@ var getRandomDate = function (from, to) {
     return new Date(from + Math.random() * (to - from)).toDateString();
 };
 
-var getRandomSeries = function () {
+var getRandomSeries = function (chartType) {
     var toDate = new Date(2014, 0, 1);
     var fromDate = new Date(2013, 0, 1);
     var max = 150;
     var min = 50;
-    return [
-        {
-            "name": "Sprint",
-            "data": [
-                {
-                    "y": Math.round(Math.random() * (max - min) + min),
-                    "name": getRandomDate(fromDate, toDate)
-                },
-                {
-                    "y": Math.round(Math.random() * (max - min) + min),
-                    "name": getRandomDate(fromDate, toDate)
-                },
-                {
-                    "y": Math.round(Math.random() * (max - min) + min),
-                    "name": getRandomDate(fromDate, toDate)
-                },
-                {
-                    "y": Math.round(Math.random() * (max - min) + min),
-                    "name": getRandomDate(fromDate, toDate)
-                },
-                {
-                    "y": Math.round(Math.random() * (max - min) + min),
-                    "name": getRandomDate(fromDate, toDate)
-                }
+    var series = '';
 
-            ]
-        },
-        {
-            "name": "Backlog w/ un estimated items",
-            "data": [
+    switch (chartType) {
+        case 'agile-burn-down' :
+            series = [
                 {
-                    "y": Math.round(Math.random() * (max - min) + min),
-                    "name": getRandomDate(fromDate, toDate)
-                },
-                {
-                    "y": Math.round(Math.random() * (max - min) + min),
-                    "name": getRandomDate(fromDate, toDate)
-                },
-                {
-                    "y": Math.round(Math.random() * (max - min) + min),
-                    "name": getRandomDate(fromDate, toDate)
-                },
-                {
-                    "y": Math.round(Math.random() * (max - min) + min),
-                    "name": getRandomDate(fromDate, toDate)
-                },
-                {
-                    "y": Math.round(Math.random() * (max - min) + min),
-                    "name": getRandomDate(fromDate, toDate)
-                }
+                    "name": "Sprint",
+                    "data": [
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        }
 
-            ]
-        }
-    ]
+                    ]
+                },
+                {
+                    "name": "Backlog w/ un estimated items",
+                    "data": [
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        }
+
+                    ]
+                }
+            ];
+            break;
+        case 'agile-burn-up' :
+            series = [
+                {
+                    "name": "Scope",
+                    "data": [
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        }
+                    ]
+                },
+                {
+                    "name": "Scope Change Trend",
+                    "data": [
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        }
+                    ],
+                    "dashStyle": "longDash"
+                },
+                {
+                    "name": "Total Effort Done",
+                    "data": [
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        }
+                    ]
+                },
+                {
+                    "name": "Velocity",
+                    "data": [
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        },
+                        {
+                            "y": Math.round(Math.random() * (max - min) + min),
+                            "name": getRandomDate(fromDate, toDate)
+                        }
+                    ],
+                    "dashStyle": "longDash"
+                }
+            ];
+            break;
+    }
+    return series;
 };

@@ -30,7 +30,7 @@ exports.findByCount = function (req, res) {
     var count = req.params.count;
     console.log(count);
     db.collection('reports', function (err, collection) {
-        collection.find().sort({$natural: -1}).limit(4).toArray(function (err, items) {
+        collection.find().sort({$natural: -1}).limit(3).toArray(function (err, items) {
             res.send(items);
         });
     });
