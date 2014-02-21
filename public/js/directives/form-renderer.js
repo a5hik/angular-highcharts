@@ -94,7 +94,7 @@ angular.module('form-renderer', [])
                 scope.field.options = getOptionsData(scope.field.object)
             }
 
-        }
+        };
 
 
         return {
