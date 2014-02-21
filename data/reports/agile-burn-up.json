@@ -7,10 +7,9 @@
                 {
                     "label": "PlanningFolder ID",
                     "name": "planning-folder-id",
+                    "type": "plan",
                     "model": "formConfig.planningFolderId",
-                    "placeHolder": "Type to Select a Planning Folder...",
-                    "type": "multi-select",
-                    "object": "plan"
+                    "placeHolder": "Type to Select a Planning Folder..."
                 },
                 {
                     "label": "Burn Up By",
