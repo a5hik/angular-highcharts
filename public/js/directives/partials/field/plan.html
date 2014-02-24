@@ -5,7 +5,9 @@
         <div class="col-sm-8">
             <select ui-select2 multiple ng-model="myModel" data-placeholder="{{field.placeHolder}}"
                     class="form-control input-sm">
-                <option ng-repeat="option in field.options" value="{{option.id}}">{{option.title}}</option>
+                <optgroup ng-repeat="category in field.options" label="{{category.text}}">
+                <option ng-repeat="option in category.children" value="{{option.id}}">{{option.text}}</option>
+                </optgroup>
             </select>
         </div>
     </div>

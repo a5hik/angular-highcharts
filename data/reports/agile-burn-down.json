@@ -6,14 +6,14 @@
         "fields": {
             "params": [
                 {
-                    "label": "PlanningFolder ID",
+                    "label": "PlanningFolder",
                     "name": "planning-folder-id",
                     "type": "plan",
                     "model": "formConfig.planningFolderId",
                     "placeHolder": "Type to Select a Planning Folder..."
                 },
                 {
-                    "label": "Tracker ID",
+                    "label": "Tracker",
                     "name": "tracker-id",
                     "type": "tracker",
                     "model": "formConfig.trackerId",

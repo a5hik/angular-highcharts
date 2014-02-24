@@ -5,7 +5,7 @@
         "fields": {
             "params": [
                 {
-                    "label": "PlanningFolder ID",
+                    "label": "PlanningFolder",
                     "name": "planning-folder-id",
                     "type": "plan",
                     "model": "formConfig.planningFolderId",
