@@ -1,4 +1,4 @@
 angular-dynamic-form
 ====================
 
-An Angular App that builds forms forms dynamically from JSON files.
+Angular Highcharts Integration, where reports are configurable dynamically from JSON files which controls the Form.
